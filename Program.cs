@@ -1,9 +1,7 @@
-﻿////////Punto 1///////
-/*using ClasesCalculadora;
+﻿using misClases;
 
-//Calculadora miCalculadora = new Calculadora(acá mando el valorInicial como parametro asi lo inicializo);
-double valorDouble;
-
+////////Punto 1///////
+/*double valorDouble;
 Console.Write("Ingrese un numero: ");
 string valor = Console.ReadLine();
 double.TryParse(valor, out valorDouble);
@@ -75,4 +73,5 @@ do
 } while (opcionConvert != 1 && opcionConvert != 2 && opcionConvert != 3 && opcionConvert != 4 && opcionConvert != 5 && opcionConvert != 6);
 */
 
+//////////Punto 2////////////
 

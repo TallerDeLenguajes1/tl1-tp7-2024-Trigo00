@@ -1,4 +1,6 @@
-﻿using misClases;
+﻿using System;
+using System.Linq;
+using misClases;
 
 ////////Punto 1///////
 /*double valorDouble;
@@ -74,4 +76,52 @@ do
 */
 
 //////////Punto 2////////////
+Empleado[] misEmpleados = new Empleado[3];
+
+misEmpleados[0] = new Empleado
+{
+    Nombre = "Juan",
+    Apellido = "Perez",
+    FechaNacimiento = new DateTime(1980, 5, 15),
+    EstadoCivil = 'C',
+    FechaIngreso = new DateTime(2005, 6, 1),
+    SueldoBasico = 650000,
+    Cargo = "Ingeniero"
+};
+
+misEmpleados[1] = new Empleado
+{
+    Nombre = "Ana",
+    Apellido = "Gomez",
+    FechaNacimiento = new DateTime(1975, 3, 10),
+    EstadoCivil = 'S',
+    FechaIngreso = new DateTime(1995, 8, 20),
+    SueldoBasico = 500000,
+    Cargo = "Especialista"
+};
+
+misEmpleados[2] = new Empleado
+{
+    Nombre = "Luis",
+    Apellido = "Martinez",
+    FechaNacimiento = new DateTime(1990, 11, 23),
+    EstadoCivil = 'C',
+    FechaIngreso = new DateTime(2012, 2, 15),
+    SueldoBasico = 450000,
+    Cargo = "Analista",
+};
+
+// Calcular el monto total de salarios
+double montoTotalSalarios = misEmpleados.Sum(e => e.CalcularSalario());
+Console.WriteLine($"Monto total de salarios: ${montoTotalSalarios}");
+// Encontrar el empleado más próximo a jubilarse
+Empleado proximoJubilacion = misEmpleados.OrderBy(e => e.AniosParaJubilacion).First();
+
+Console.WriteLine("Empleado más próximo a jubilarse");
+Console.WriteLine($"Nombre: {proximoJubilacion.Nombre}");
+Console.WriteLine($"Apellido: {proximoJubilacion.Apellido}");
+Console.WriteLine($"Edad: {proximoJubilacion.Edad}");
+Console.WriteLine($"Antigüedad: {proximoJubilacion.Antiguedad}");
+Console.WriteLine($"Años para jubilación: {proximoJubilacion.AniosParaJubilacion}");
+Console.WriteLine($"Salario: {proximoJubilacion.CalcularSalario()}");
 

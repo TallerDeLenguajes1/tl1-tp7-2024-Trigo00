@@ -44,22 +44,76 @@ namespace misClases // Es un agrupador logico de clases
     // Definición de la enumeración para los cargos
     public enum Cargos
     {
-        Auxiliar,
-        Administrativo,
-        Ingeniero,
-        Especialista,
-        Investigador
+        Auxiliar = 0,
+        Administrativo = 1,
+        Ingeniero = 2,
+        Especialista = 3,
+        Investigador = 4
     }
 
 
     public class Empleado
     {
-        private string nombre;
-        private string apellido;
-        private DateTime fechaDeNacimiento;
-        private char estadoCivil;
-        private DateTime fechaIngreso;
-        private double sueldoBasico;
-        private Cargos cargoEmpleado;
-    }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public char EstadoCivil { get; set; }
+        public DateTime FechaIngreso { get; set; }
+        public double SueldoBasico { get; set; }
+        public string Cargo { get; set; }
+
+        public int Antiguedad
+        {
+            get
+            {
+                return DateTime.Now.Year - FechaIngreso.Year;
+            }
+        }
+
+        public int Edad
+        {
+            get
+            {
+                return DateTime.Now.Year - FechaNacimiento.Year;
+            }
+        }
+
+        public int AniosParaJubilacion
+        {
+            get
+            {
+                return 65 - Edad;
+            }
+        }
+
+        public double CalcularSalario()
+        {
+            double adicional = 0;
+            int antiguedad = this.Antiguedad;
+
+            // Calcula el adicional por antigüedad
+            if (antiguedad <= 20)
+            {
+                adicional = SueldoBasico * 0.01 * antiguedad;
+            }
+            else
+            {
+                adicional = SueldoBasico * 0.25;
+            }
+
+            // Incremento por cargo
+            if (Cargo == "Ingeniero" || Cargo == "Especialista")
+            {
+                adicional *= 1.5;
+            }
+
+            // Incremento por estar casado
+            if (EstadoCivil == 'C')
+            {
+                adicional += 150000;
+            }
+
+            return SueldoBasico + adicional;
+        }
+    }   
 }

@@ -44,11 +44,11 @@ namespace misClases // Es un agrupador logico de clases
     // Definición de la enumeración para los cargos
     public enum Cargos
     {
-        Auxiliar = 0,
-        Administrativo = 1,
-        Ingeniero = 2,
-        Especialista = 3,
-        Investigador = 4
+        Auxiliar,
+        Administrativo,
+        Ingeniero,
+        Especialista,
+        Investigador
     }
 
 
